@@ -8,13 +8,10 @@ import fr.istic.prg1.tree_util.Node;
 import fr.istic.prg1.tree_util.NodeType;
 
 /**
- * @author Mickaël Foursov <foursov@univ-rennes1.fr>
+ * @author Bouchra Salma <salma.bouchra@etudiant.univ-rennes1.fr>
+ * @author Cyril KONE<largaton-ange-cyril.kone@etudiant.univ-rennes1.fr>
  * @version 5.0
- * @since 2023-09-23
- * 
- *        Classe décrivant les images en noir et blanc de 256 sur 256 pixels
- *        sous forme d'arbres binaires.
- * 
+ * @since 2023-10-25
  */
 
 public class Image extends AbstractImage {
@@ -83,8 +80,8 @@ public class Image extends AbstractImage {
 		rotate180Aux(it, it2);
 	}
 
-	public void rotate180Aux(Iterator<Node> it,Iterator<Node> it2) {
-		if(!it2.isEmpty()) {
+	public void rotate180Aux(Iterator<Node> it, Iterator<Node> it2) {
+		if (!it2.isEmpty()) {
 			it.addValue(it2.getValue());
 			it.goLeft();
 			it2.goRight();
@@ -96,10 +93,10 @@ public class Image extends AbstractImage {
 			rotate180Aux(it, it2);
 			it.goUp();
 			it2.goUp();
-			
-			
+
 		}
 	}
+
 	/**
 	 * this devient inverse vidéo de this, pixel par pixel.
 	 *
@@ -110,27 +107,23 @@ public class Image extends AbstractImage {
 		Iterator<Node> it = this.iterator();
 		videoInverseAux(it);
 	}
-	
+
 	public void videoInverseAux(Iterator<Node> it) {
 		if (it.getValue().state == 2) {
-		
+
 			it.goLeft();
 			videoInverseAux(it);
 			it.goUp();
 			it.goRight();
 			videoInverseAux(it);
 			it.goUp();
-		}
-		else if (it.getValue().state == 0) {
+		} else if (it.getValue().state == 0) {
 			it.setValue(Node.valueOf(1));
-		}
-		else {
+		} else {
 			it.setValue(Node.valueOf(0));
 		}
-		
+
 	}
-	
-	
 
 	/**
 	 * this devient image miroir verticale de image2.
@@ -174,21 +167,17 @@ public class Image extends AbstractImage {
 		Iterator<Node> it = this.iterator();
 		Iterator<Node> it2 = image2.iterator();
 		it.clear();
-		if(it2.getValue().state == 2) {
+		if (it2.getValue().state == 2) {
 			it2.goLeft();
-			if(it2.getValue().state != 2) {
+			if (it2.getValue().state != 2) {
 				it.addValue((it2.getValue()));
-			}
-			else {
+			} else {
 				it2.goLeft();
 				affectAux(it, it2);
 			}
-		
+
 		}
-		
-		
-		
-		
+
 	}
 
 	/**
@@ -270,9 +259,6 @@ public class Image extends AbstractImage {
 			}
 		}
 	}
-
-	
-	
 
 	/**
 	 * Attention : cette fonction ne doit pas utiliser la commande isPixelOn
