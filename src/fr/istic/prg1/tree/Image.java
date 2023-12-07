@@ -169,7 +169,7 @@ public class Image extends AbstractImage {
 		it.clear();
 		if (it2.getValue().state == 2) {
 			it2.goLeft();
-			if (it2.getValue().state != 2) {
+			if  (it2.getValue().state != 2) {
 				it.addValue((it2.getValue()));
 			} else {
 				it2.goLeft();
