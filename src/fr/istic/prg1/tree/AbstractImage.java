@@ -16,11 +16,11 @@ import fr.istic.prg1.tree_util.Node;
 import fr.istic.prg1.tree_util.NodeType;
 
 /**
- * @author MickaÃ«l Foursov <foursov@univ-rennes1.fr>
+ * @author Mickaël Foursov <foursov@univ-rennes1.fr>
  * @version 5.0
  * @since 2016-04-20
  * 
- *        Classe dÃ©crivant les images en noir et blanc de 256 sur 256 pixels
+ *        Classe décrivant les images en noir et blanc de 256 sur 256 pixels
  *        sous forme d'arbres binaires.
  * 
  */
@@ -36,10 +36,10 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 	}
 
 	/**
-	 * CrÃ©e this Ã  partir dâ€™un fichier texte (cf a1.arb, ...) et lâ€™affiche dans une
-	 * fenÃªtre. Chaque ligne du fichier est de la forme (e x1 y1 x2 y2) et indique
-	 * si on souhaite Ã©teindre (e=0) ou allumer (e=1) la rÃ©gion rectangulaire de
-	 * coordonnÃ©es x1, y1, x2, y2. Le fichier se termine par un e de valeur -1.
+	 * Crée this �  partir d’un fichier texte (cf a1.arb, ...) et l’affiche dans une
+	 * fenêtre. Chaque ligne du fichier est de la forme (e x1 y1 x2 y2) et indique
+	 * si on souhaite éteindre (e=0) ou allumer (e=1) la région rectangulaire de
+	 * coordonnées x1, y1, x2, y2. Le fichier se termine par un e de valeur -1.
 	 */
 	public void constructTreeFromFile() {
 		Iterator<Node> it = this.iterator();
@@ -122,7 +122,7 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 
 	/**
 	 * Sauvegarder, dans un fichier texte, les feuilles de this selon un format
-	 * conforme aux fichiers manipulÃ©s par la commande constructTreeFromFile.
+	 * conforme aux fichiers manipulés par la commande constructTreeFromFile.
 	 *
 	 * @pre !this.isEmpty()
 	 */
@@ -185,10 +185,10 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 	}
 
 	/**
-	 * Afficher this sous forme d'image dans la fenÃªtre graphique.
+	 * Afficher this sous forme d'image dans la fenêtre graphique.
 	 * 
-	 * @param windowNumber numÃ©ro de la fenÃªtre (de 0 Ã  4)
-	 * @param window       fenÃªtre graphique pour l'affichage des images
+	 * @param windowNumber numéro de la fenêtre (de 0 �  4)
+	 * @param window       fenêtre graphique pour l'affichage des images
 	 */
 	public void plotImage(int windowNumber, ImageWindow window) {
 		System.out.println("Corrige : plotImage");
@@ -236,7 +236,7 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 	}
 
 	/**
-	 * Afficher this sous forme dâ€™arbre dans une fenÃªtre externe.
+	 * Afficher this sous forme d’arbre dans une fenêtre externe.
 	 *
 	 * @pre !this.isEmpty()
 	 */
@@ -311,23 +311,23 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 
 	/**
 	 * @param x abscisse du point
-	 * @param y ordonnÃ©e du point
+	 * @param y ordonnée du point
 	 * @pre !this.isEmpty()
-	 * @return true, si le point (x, y) est allumÃ© dans this, false sinon
+	 * @return true, si le point (x, y) est allumé dans this, false sinon
 	 */
 	public abstract boolean isPixelOn(int x, int y);
 
 	/**
-	 * this devient identique Ã  image2.
+	 * this devient identique �  image2.
 	 *
-	 * @param image2 image Ã  copier
+	 * @param image2 image �  copier
 	 *
 	 * @pre !image2.isEmpty()
 	 */
 	public abstract void affect(AbstractImage image);
 
 	/**
-	 * this devient rotation de image2 Ã  180 degrÃ©s.
+	 * this devient rotation de image2 �  180 degrés.
 	 *
 	 * @param image2 image pour rotation
 	 * @pre !image2.isEmpty()
@@ -335,7 +335,7 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 	public abstract void rotate180(AbstractImage image2);
 
 	/**
-	 * this devient inverse vidÃ©o de this, pixel par pixel.
+	 * this devient inverse vidéo de this, pixel par pixel.
 	 *
 	 * @pre !image.isEmpty()
 	 */
@@ -344,7 +344,7 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 	/**
 	 * this devient image miroir verticale de image2.
 	 *
-	 * @param image2 image Ã  agrandir
+	 * @param image2 image �  agrandir
 	 * @pre !image2.isEmpty()
 	 */
 	public abstract void mirrorV(AbstractImage image2);
@@ -352,31 +352,31 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 	/**
 	 * this devient image miroir horizontale de image2.
 	 *
-	 * @param image2 image Ã  agrandir
+	 * @param image2 image �  agrandir
 	 * @pre !image2.isEmpty()
 	 */
 	public abstract void mirrorH(AbstractImage image2);
 
 	/**
-	 * this devient quart supÃ©rieur gauche de image2.
+	 * this devient quart supérieur gauche de image2.
 	 *
-	 * @param image2 image Ã  agrandir
+	 * @param image2 image �  agrandir
 	 * 
 	 * @pre !image2.isEmpty()
 	 */
 	public abstract void zoomIn(AbstractImage image2);
 
 	/**
-	 * Le quart supÃ©rieur gauche de this devient image2, le reste de this devient
-	 * Ã©teint.
+	 * Le quart supérieur gauche de this devient image2, le reste de this devient
+	 * éteint.
 	 * 
-	 * @param image2 image Ã  rÃ©duire
+	 * @param image2 image �  réduire
 	 * @pre !image2.isEmpty()
 	 */
 	public abstract void zoomOut(AbstractImage image2);
 
 	/**
-	 * this devient l'intersection de image2 et image3 au sens des pixels allumÃ©s.
+	 * this devient l'intersection de image2 et image3 au sens des pixels allumés.
 	 * 
 	 * @pre !image2.isEmpty() && !image3.isEmpty()
 	 * 
@@ -386,7 +386,7 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 	public abstract void intersection(AbstractImage image2, AbstractImage image3);
 
 	/**
-	 * this devient l'union de image2 et image3 au sens des pixels allumÃ©s.
+	 * this devient l'union de image2 et image3 au sens des pixels allumés.
 	 * 
 	 * @pre !image2.isEmpty() && !image3.isEmpty()
 	 * 
@@ -399,25 +399,25 @@ public abstract class AbstractImage extends BinaryTree<Node> {
 	 * Attention : cette fonction ne doit pas utiliser la commande isPixelOn
 	 * 
 	 * @return true si tous les points de la forme (x, x) (avec 0 <= x <= 255)
-	 *         sont allumÃ©s dans this, false sinon
+	 *         sont allumés dans this, false sinon
 	 */
 	public abstract boolean testDiagonal();
 
 	/**
 	 * @param x1 abscisse du premier point
-	 * @param y1 ordonnÃ©e du premier point
-	 * @param x2 abscisse du deuxiÃ¨me point
-	 * @param y2 ordonnÃ©e du deuxiÃ¨me point
+	 * @param y1 ordonnée du premier point
+	 * @param x2 abscisse du deuxième point
+	 * @param y2 ordonnée du deuxième point
 	 * @pre !this.isEmpty()
-	 * @return true si les deux points (x1, y1) et (x2, y2) sont reprÃ©sentÃ©s par la
-	 *         mÃªme feuille de this, false sinon
+	 * @return true si les deux points (x1, y1) et (x2, y2) sont représentés par la
+	 *         même feuille de this, false sinon
 	 */
 	public abstract boolean sameLeaf(int x1, int y1, int x2, int y2);
 
 	/**
 	 * @param image2 autre image
 	 * @pre !this.isEmpty() && !image2.isEmpty()
-	 * @return true si this est incluse dans image2 au sens des pixels allumÃ©s false
+	 * @return true si this est incluse dans image2 au sens des pixels allumés false
 	 *         sinon
 	 */
 	public abstract boolean isIncludedIn(AbstractImage image2);

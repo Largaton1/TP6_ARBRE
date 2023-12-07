@@ -555,4 +555,5 @@ public class TestImage {
 		result = image1.sameLeaf(129, 193, 128, 192);
 		assertTrue("sameLeaf a2 129 193 128 192", result);
 	}
+
 }
