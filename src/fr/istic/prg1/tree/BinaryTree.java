@@ -1,6 +1,7 @@
 package fr.istic.prg1.tree;
 
 import java.util.Deque;
+import java.util.List;
 
 import fr.istic.prg1.tree_util.Iterator;
 import fr.istic.prg1.tree_util.NodeType;
@@ -8,9 +9,9 @@ import fr.istic.prg1.tree_util.NodeType;
 import java.util.ArrayDeque;
 
 /**
- * @author Mickaël Foursov <foursov@univ-rennes1.fr>
- * @version 4.0
- * @since 2015-06-15
+ * @author Largaton KONE
+ * @author Salma Bouchra
+ * 
  * @param <T>
  *            type formel d'objet pour la classe
  *
@@ -38,8 +39,10 @@ public class BinaryTree<T> {
 	}
 
 	private Element root;
+	private List<TreeIterator> listIterator;
 
 	public BinaryTree() {
+		root = new Element();
 	}
 
 	/**
@@ -47,14 +50,16 @@ public class BinaryTree<T> {
 	 *         l’itérateur est positionné sur la racine de l’arbre.
 	 */
 	public TreeIterator iterator() {
-	    return null;
+		TreeIterator it = new TreeIterator();
+		listIterator.add(it);
+		return it;
 	}
 
 	/**
 	 * @return true si l'arbre this est vide, false sinon
 	 */
 	public boolean isEmpty() {
-	    return false;
+		return false;
 	}
 
 	/**
@@ -126,7 +131,7 @@ public class BinaryTree<T> {
 		 */
 		@Override
 		public boolean isEmpty() {
-		    return false;
+			return false;
 		}
 
 		/**
@@ -134,7 +139,7 @@ public class BinaryTree<T> {
 		 */
 		@Override
 		public NodeType nodeType() {
-		    return NodeType.SENTINEL;
+			return NodeType.SENTINEL;
 		}
 
 		/**
@@ -165,16 +170,16 @@ public class BinaryTree<T> {
 		 */
 		@Override
 		public T getValue() {
-		    return null;
+			return null;
 		}
 
 		/**
-		 * Créer un nouveau noeud de valeur v �  cet endroit.
+		 * Créer un nouveau noeud de valeur v � cet endroit.
 		 * 
 		 * @pre Le noeud courant est un butoir.
 		 * 
 		 * @param v
-		 *            Valeur �  ajouter.
+		 *          Valeur � ajouter.
 		 */
 
 		@Override
@@ -191,7 +196,7 @@ public class BinaryTree<T> {
 		 * Affecter la valeur v au noeud courant.
 		 * 
 		 * @param v
-		 *            La nouvelle valeur du noeud courant.
+		 *          La nouvelle valeur du noeud courant.
 		 */
 		@Override
 		public void setValue(T v) {
@@ -216,7 +221,7 @@ public class BinaryTree<T> {
 		}
 
 		/**
-		 * Échanger les valeurs associées au noeud courant et �  son père d’ordre i (le
+		 * Échanger les valeurs associées au noeud courant et � son père d’ordre i (le
 		 * noeud courant reste inchangé).
 		 * 
 		 * @pre i>= 0 et racine est père du noeud courant d’ordre >= i.
