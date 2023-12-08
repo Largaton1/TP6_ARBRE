@@ -100,6 +100,8 @@ public class BinaryTree<T> {
 		public void goRight() {
 			try {
 				assert !this.isEmpty() : "le butoir n'a pas de fils";
+				stack.push(currentNode);
+				currentNode = currentNode.right;
 			} catch (AssertionError e) {
 				e.printStackTrace();
 				System.exit(0);
@@ -115,6 +117,7 @@ public class BinaryTree<T> {
 		public void goUp() {
 			try {
 				assert !stack.isEmpty() : " la racine n'a pas de pere";
+				currentNode = stack.pop();
 			} catch (AssertionError e) {
 				e.printStackTrace();
 				System.exit(0);
@@ -126,6 +129,8 @@ public class BinaryTree<T> {
 		 */
 		@Override
 		public void goRoot() {
+			stack.pop();
+			currentNode = root;
 		}
 
 		/**
@@ -133,7 +138,8 @@ public class BinaryTree<T> {
 		 */
 		@Override
 		public boolean isEmpty() {
-			return false;
+			return currentNode.value == null && currentNode.isEmpty();
+		}
 		}
 
 		/**
@@ -141,7 +147,19 @@ public class BinaryTree<T> {
 		 */
 		@Override
 		public NodeType nodeType() {
-			return NodeType.SENTINEL;
+			if (currentNode.right == null || currentNode.left == null) {
+				return NodeType.SENTINEL;
+			}
+			if (currentNode.left.value == null && currentNode.right.value == null) {
+				return NodeType.LEAF;
+			}
+			if (currentNode.right.value == null) {
+				return NodeType.SIMPLE_LEFT;
+			}
+			if (currentNode.left.value == null) {
+				return NodeType.SIMPLE_RIGHT;
+			}
+			return NodeType.DOUBLE;
 		}
 
 		/**
