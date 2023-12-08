@@ -59,7 +59,7 @@ public class BinaryTree<T> {
 	 * @return true si l'arbre this est vide, false sinon
 	 */
 	public boolean isEmpty() {
-		return false;
+		return root == null;
 	}
 
 	/**
@@ -83,6 +83,8 @@ public class BinaryTree<T> {
 		public void goLeft() {
 			try {
 				assert !this.isEmpty() : "le butoir n'a pas de fils";
+				stack.push(currentNode);
+				currentNode = currentNode.left;
 			} catch (AssertionError e) {
 				e.printStackTrace();
 				System.exit(0);
